@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #eee0e5;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <center>
+      <Canvas fx:id="canvas" height="200.0" onMouseClicked="#CanvasOnMouseClick" translateY="7.0" width="400.0" BorderPane.alignment="CENTER" />
+   </center>
+   <bottom>
+      <BorderPane prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <bottom>
+            <Button fx:id="exitButton" alignment="CENTER" contentDisplay="BOTTOM" depthTest="ENABLE" mnemonicParsing="false" onAction="#ExitButton" prefHeight="41.0" prefWidth="100.0" style="-fx-background-color: #ff99cc; -fx-background-color: #fff4df;" text="EXIT" textFill="#d31a67" translateY="-7.0" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Chilanka Regular" size="18.0" />
+               </font>
+               <effect>
+                  <InnerShadow>
+                     <color>
+                        <Color red="0.9686274528503418" green="0.14509804546833038" blue="0.364705890417099" opacity="0.8999999761581421" />
+                     </color>
+                  </InnerShadow>
+               </effect>
+            </Button>
+         </bottom>
+         <left>
+            <Button fx:id="loadButton" mnemonicParsing="false" onAction="#LoadButton" prefWidth="76.0" style="-fx-background-color: #fff4df;" text="Load" textFill="#e42165" translateX="150.0" BorderPane.alignment="CENTER">
+               <effect>
+                  <InnerShadow>
+                     <color>
+                        <Color red="0.9686274528503418" green="0.14509804546833038" blue="0.364705890417099" opacity="0.9399999976158142" />
+                     </color>
+                  </InnerShadow>
+               </effect>
+               <font>
+                  <Font name="Chilanka Regular" size="13.0" />
+               </font></Button>
+         </left>
+         <center>
+            <Button fx:id="saveButton" mnemonicParsing="false" onAction="#SaveButton" prefWidth="76.0" style="-fx-background-color: #fff4fd;" text="Save" textFill="#da125f" BorderPane.alignment="CENTER">
+               <effect>
+                  <InnerShadow>
+                     <color>
+                        <Color red="0.9686274528503418" green="0.14509804546833038" blue="0.364705890417099" opacity="0.9300000071525574" />
+                     </color>
+                  </InnerShadow>
+               </effect>
+               <font>
+                  <Font name="Chilanka Regular" size="13.0" />
+               </font></Button>
+         </center>
+         <right>
+            <Button fx:id="resetButton" mnemonicParsing="false" onAction="#ResetButton" prefWidth="76.0" style="-fx-background-color: #fff4df;" text="Reset" textFill="#cd1439" translateX="-150.0" BorderPane.alignment="CENTER">
+               <effect>
+                  <InnerShadow>
+                     <color>
+                        <Color red="0.9700000286102295" green="0.14550000429153442" blue="0.365366667509079" opacity="0.9067796468734741" />
+                     </color>
+                  </InnerShadow>
+               </effect>
+               <font>
+                  <Font name="Chilanka Regular" size="13.0" />
+               </font></Button>
+         </right>
+      </BorderPane>
+   </bottom>
+   <top>
+      <SplitPane dividerPositions="0.29797979797979796" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #eee0e5;">
+               <children>
+                  <Label layoutX="51.0" layoutY="33.0" text="Size" textFill="#ba2d5c" translateX="-30.0">
+                     <font>
+                        <Font name="Chilanka Regular" size="13.0" />
+                     </font></Label>
+                  <Label layoutX="53.0" layoutY="65.0" text="Sides" textFill="#d3165b" translateX="-39.0" AnchorPane.leftAnchor="53.0" AnchorPane.rightAnchor="85.0">
+                     <font>
+                        <Font name="Chilanka Regular" size="13.0" />
+                     </font></Label>
+                  <TextField fx:id="size" layoutX="61.0" layoutY="28.0" prefHeight="26.0" prefWidth="107.0" style="-fx-background-color: #fff4df;">
+                     <effect>
+                        <InnerShadow>
+                           <color>
+                              <Color red="0.8899999856948853" green="0.15129999816417694" blue="0.4098449945449829" opacity="0.18220339715480804" />
+                           </color>
+                        </InnerShadow>
+                     </effect></TextField>
+                  <TextField fx:id="sides" layoutX="61.0" layoutY="60.0" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: #fff4df;">
+                     <effect>
+                        <InnerShadow>
+                           <color>
+                              <Color red="0.8899999856948853" green="0.16019999980926514" blue="0.42779332399368286" opacity="0.19508473575115204" />
+                           </color>
+                        </InnerShadow>
+                     </effect></TextField>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #eee0e5;">
+               <children>
+                  <Label layoutX="30.0" layoutY="14.0" text="Colour" textFill="#eb205d">
+                     <font>
+                        <Font name="Chilanka Regular" size="13.0" />
+                     </font></Label>
+                  <ColorPicker fx:id="colorPicker" layoutX="30.0" layoutY="36.0" style="-fx-background-color: #fff4df;">
+                     <value>
+                        <Color red="1.0" green="0.6000000238418579" blue="0.800000011920929" />
+                     </value>
+                     <effect>
+                        <InnerShadow>
+                           <color>
+                              <Color red="0.8899999856948853" green="0.16019999980926514" blue="0.42779332399368286" opacity="0.23728813230991364" />
+                           </color>
+                        </InnerShadow>
+                     </effect></ColorPicker>
+                  <ComboBox fx:id="comboBox" layoutX="187.0" layoutY="36.0" prefHeight="26.0" prefWidth="205.0" style="-fx-background-color: #fff4df;">
+                     <effect>
+                        <InnerShadow>
+                           <color>
+                              <Color red="0.7699999809265137" green="0.007699999958276749" blue="0.10933999717235565" opacity="0.4657627046108246" />
+                           </color>
+                        </InnerShadow>
+                     </effect></ComboBox>
+                  <Label layoutX="187.0" layoutY="16.0" text="Or maybe a predefined shape" textFill="#eb205d">
+                     <font>
+                        <Font name="Chilanka Regular" size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </top>
+   <left>
+      <AmbientLight color="CHARTREUSE" lightOn="true" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <AmbientLight color="CHARTREUSE" lightOn="true" BorderPane.alignment="CENTER" />
+   </right>
+</BorderPane>
