@@ -41,6 +41,9 @@ public class Controller implements Initializable {
 
         Stage stage = (Stage) exitButton.getScene().getWindow();
         stage.close();
+        
+        ///am descoperit mai tarziu (dupa ora 00:00) ca puteam inchide procesul folosind .setRunning(false)
+        //game.setRunning(false)
 
         System.out.println("inchis!");
     }
