@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <Pane prefHeight="637.0" prefWidth="850.0" style="-fx-background-color: #98fb98;">
+         <children>
+            <TableView fx:id="tabela" layoutX="14.0" layoutY="150.0" prefHeight="448.0" prefWidth="677.0" style="-fx-background-color: #3cb371; -fx-background-radius: 9; -fx-border-radius: 9;" styleClass="ccolumn-header" stylesheets="@style.css">
+              <columns>
+               <TableColumn fx:id="c1" onEditStart="#insertTabel" prefWidth="75.0" />
+                <TableColumn fx:id="c2" onEditStart="#insertTabel" prefWidth="75.0" />
+                  <TableColumn fx:id="c3" minWidth="0.0" prefWidth="75.0" />
+                  <TableColumn fx:id="c4" minWidth="0.0" prefWidth="69.0" />
+                  <TableColumn fx:id="c5" prefWidth="68.0" />
+                  <TableColumn fx:id="c7" prefWidth="74.0" />
+                  <TableColumn fx:id="c8" prefWidth="69.0" />
+                  <TableColumn fx:id="c9" prefWidth="84.0" />
+                  <TableColumn fx:id="c10" prefWidth="84.0" />
+              </columns>
+               <effect>
+                  <InnerShadow choke="0.25" />
+               </effect>
+            </TableView>
+            <Button fx:id="exitButton" layoutX="713.0" layoutY="546.0" mnemonicParsing="false" onAction="#exitButton" prefHeight="53.0" prefWidth="96.0" style="-fx-background-color: #6B8E23; -fx-cursor: #000000;" text="EXIT" textFill="#e5ffda">
+               <effect>
+                  <InnerShadow>
+                     <color>
+                        <Color red="0.14473684132099152" green="0.14138644933700562" blue="0.14138644933700562" />
+                     </color></InnerShadow>
+               </effect>
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
+            <ComboBox fx:id="comboBox" layoutX="14.0" layoutY="107.0" onAction="#actiuneComboBox" prefHeight="26.0" prefWidth="319.0" promptText="Choose the method to aproach the DB" style="-fx-background-color: #6B8E23;">
+               <effect>
+                  <InnerShadow>
+                     <color>
+                        <Color red="0.01138320378959179" green="0.01315789483487606" blue="0.010843079537153244" />
+                     </color>
+                  </InnerShadow>
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="WAIT" />
+               </cursor></ComboBox>
+            <TextField fx:id="textField1" disable="true" layoutX="703.0" layoutY="215.0" prefHeight="26.0" prefWidth="116.0" promptText="findById" style="-fx-background-color: #008000; -fx-border-color: #000000; -fx-border-radius: 5; -fx-background-radius: 5;">
+               <effect>
+                  <InnerShadow />
+               </effect>
+               <font>
+                  <Font name="Droid Serif" size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets></TextField>
+            <Label layoutX="742.0" layoutY="189.0" prefHeight="16.0" prefWidth="53.0" text="Artist" textFill="#587220" />
+            <Label layoutX="740.0" layoutY="287.0" text="Album" textFill="#587220" />
+            <Separator layoutX="697.0" layoutY="286.0" prefHeight="3.0" prefWidth="149.0" />
+            <ImageView fitHeight="43.0" fitWidth="96.0" layoutX="701.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@frz2.png" />
+               </image></ImageView>
+            <ImageView fitHeight="73.0" fitWidth="76.0" layoutX="756.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@frz1.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="53.0" fitWidth="53.0" layoutX="634.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@frz3.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="textField2" disable="true" layoutX="703.0" layoutY="249.0" prefHeight="26.0" prefWidth="116.0" promptText="findByName" style="-fx-background-color: #008000; -fx-border-color: #000000; -fx-border-radius: 5; -fx-background-radius: 5;">
+               <effect>
+                  <InnerShadow />
+               </effect>
+               <font>
+                  <Font name="Droid Serif" size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <opaqueInsets>
+                  <Insets top="1.0" />
+               </opaqueInsets>
+            </TextField>
+            <TextField fx:id="textField3" disable="true" layoutX="703.0" layoutY="311.0" prefHeight="26.0" prefWidth="116.0" promptText="findById" style="-fx-background-color: #008000; -fx-border-color: #000000; -fx-border-radius: 5; -fx-background-radius: 5;">
+               <effect>
+                  <InnerShadow />
+               </effect>
+               <font>
+                  <Font name="Droid Serif" size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <opaqueInsets>
+                  <Insets top="1.0" />
+               </opaqueInsets>
+            </TextField>
+            <TextField fx:id="textField4" disable="true" layoutX="703.0" layoutY="346.0" prefHeight="26.0" prefWidth="116.0" promptText="findByName" style="-fx-background-color: #008000; -fx-border-color: #000000; -fx-border-radius: 5; -fx-background-radius: 5;">
+               <effect>
+                  <InnerShadow />
+               </effect>
+               <font>
+                  <Font name="Droid Serif" size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <opaqueInsets>
+                  <Insets top="1.0" />
+               </opaqueInsets>
+            </TextField>
+            <TextField fx:id="textField5" disable="true" layoutX="703.0" layoutY="382.0" prefHeight="26.0" prefWidth="116.0" promptText="findByArtist" style="-fx-background-color: #008000; -fx-border-color: #000000; -fx-border-radius: 5; -fx-background-radius: 5;">
+               <effect>
+                  <InnerShadow />
+               </effect>
+               <font>
+                  <Font name="Droid Serif" size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <opaqueInsets>
+                  <Insets top="1.0" />
+               </opaqueInsets>
+            </TextField>
+            <ComboBox fx:id="comboBox2" layoutX="368.0" layoutY="107.0" onAction="#actiuneComboBox2" prefHeight="26.0" prefWidth="319.0" promptText="Choose tabel" style="-fx-background-color: #6B8E23;">
+               <effect>
+                  <InnerShadow />
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="WAIT" />
+               </cursor>
+            </ComboBox>
+            <ImageView fitHeight="73.0" fitWidth="76.0" layoutX="771.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@frz1.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="okButton" layoutX="728.0" layoutY="421.0" mnemonicParsing="false" onAction="#okButtonAction" prefHeight="16.0" prefWidth="76.0" style="-fx-background-color: #6B8E23; -fx-cursor: #000000;" text="ok" textFill="#e5ffda">
+               <effect>
+                  <InnerShadow>
+                     <color>
+                        <Color red="0.14473684132099152" green="0.14138644933700562" blue="0.14138644933700562" />
+                     </color>
+                  </InnerShadow>
+               </effect>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children>
+         <stylesheets>
+            <URL value="@style.css" />
+            <URL value="@style.css" />
+         </stylesheets>
+      </Pane>
+   </children>
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+</GridPane>

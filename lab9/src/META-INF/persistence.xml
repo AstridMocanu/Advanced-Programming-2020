@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
+
+    <persistence-unit name="MusicAlbumsPU">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <mapping-file>Albums.xml</mapping-file>
+        <mapping-file>Artists.xml</mapping-file>
+        <mapping-file>Charts.xml</mapping-file>
+        <mapping-file>Genres.xml</mapping-file>
+        <class>entity.Albums</class>
+        <class>entity.Artists</class>
+        <class>entity.Charts</class>
+        <class>entity.Genres</class>
+        <properties>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost/MusicAlbums?useLegacyDatetimeCode=false&amp;serverTimezone=America/New_York"/>
+            <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="hibernate.connection.username" value="dba"/>
+            <property name="hibernate.connection.password" value="sql"/>
+            <property name="hibernate.archive.autodetection" value="class"/>
+            <property name="hibernate.show_sql" value="false"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.dialect" value = "org.hibernate.dialect.MySQLDialect"/>
+        </properties>
+    </persistence-unit>
+</persistence>
+
+

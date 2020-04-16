@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="entityHibernate.ChartsHib" table="charts" schema="MusicAlbums">
+        <composite-id mapped="true" class="entityHibernate.ChartsHibPK">
+            <key-property name="id">
+                <column name="id" sql-type="int(11)"/>
+            </key-property>
+            <key-property name="albumId">
+                <column name="album_id" sql-type="int(11)"/>
+            </key-property>
+        </composite-id>
+        <property name="position">
+            <column name="position" sql-type="int(11)"/>
+        </property>
+        <property name="artistId">
+            <column name="artist_id" sql-type="int(11)"/>
+        </property>
+    </class>
+</hibernate-mapping>
