@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <Pane prefHeight="200.0" prefWidth="200.0" />
+      <Pane prefHeight="675.0" prefWidth="895.0">
+         <children>
+            <Canvas height="529.0" layoutX="71.0" layoutY="110.0" width="767.0" />
+            <Canvas height="498.0" layoutX="86.0" layoutY="147.0" width="552.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="477.0" layoutX="86.0" layoutY="147.0" stroke="BLACK" strokeType="INSIDE" width="552.0">
+               <fill>
+                  <RadialGradient centerX="0.5" centerY="0.5865384615384616" cycleMethod="REFLECT" focusAngle="3.18" radius="0.5">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.9868420958518982" green="0.9868420958518982" blue="0.2832602262496948" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.9473684430122375" green="0.9473684430122375" blue="0.6798245906829834" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </fill>
+            </Rectangle>
+            <Line endX="450.0" layoutX="187.0" layoutY="202.0" startX="-100.0" strokeMiterLimit="100.0" />
+            <Line endX="100.0" layoutX="187.0" layoutY="253.0" startX="-100.0" strokeMiterLimit="80.0" />
+         </children>
+      </Pane>
+   </children>
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+</GridPane>
