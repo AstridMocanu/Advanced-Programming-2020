@@ -1,0 +1,194 @@
+ while(!request.equals("exit")){
+
+                /////clientul nu scrie nimic in buffer daca nu e tura lui
+                ///asteapta mesajul:ACUM ESTE TURA TA
+                // + ultima mutare a adversarului
+                if(response.equals("acum este tura ta")){
+                    request = console.nextLine();
+                    out.println(request);
+
+                    if(request.equals("stop"))
+                        break;
+
+                }
+                out.println(request);
+
+                if(request.equals("stop"))
+                    break;
+
+
+                response = in.readLine ();
+                System.out.println(response);
+                }
+                request = console.nextLine();
+
+
+            if(request.equals("stop"))
+            out.println("stop");
+            out.println(request);
+
+            ////////////////////////////////////////////////
+
+             ///initial citesc requestul de la tastatura
+                        ///dupa testare -> tb preluate din controller
+                        Scanner console = new Scanner(System.in);
+
+                        String request = console.nextLine();
+                        while(!request.equals("exit")){
+
+                            /////clientul nu scrie nimic in buffer daca nu e tura lui
+                            ///asteapta mesajul:ACUM ESTE TURA TA
+                            // + ultima mutare a adversarului
+                            out.println(request);
+
+                            if(request.equals("stop"))
+                                break;
+
+
+                            String response = in.readLine ();
+                            System.out.println(response);
+                            }
+                            request = console.nextLine();
+
+
+                        if(request.equals("stop"))
+                        out.println("stop");
+                        out.println(request);
+
+
+                        .//////////////////////////////////
+
+                        while(!request.equals("stop")){
+
+                                        System.out.println(request);
+                                        System.out.flush();
+
+                                        raspuns="0";
+
+                                        /////creare joc
+                                        if(request.equals("create game"))
+                                        {
+                                            raspuns="joc creat";
+                                            ///by default dim=15
+                                            game=new Game(15);
+                                            nrGame=game.getTurn();
+
+                                        }
+
+                                        ////adugare player
+                                        if(request.contains("join game"))
+                                        {
+                                            int nr=0,ok=1;
+                                            request=request.replace("join game","");
+                                            request=request.replace(" ","");
+
+
+                                            try {
+                                                nr=Integer.parseInt(request);
+                                            } catch (NumberFormatException nfe) {
+                                                raspuns="nu ati introdus un numar valid. incercati din nou.";
+                                                ok=0;
+                                            }
+
+                                            if(ok==1)
+                                                if(game.getGame(nr)!=null)
+                                                    if(game.getGame(nr).addPlayer())
+                                                        raspuns="v-ati alaturat jocului";
+                                                    else
+                                                        raspuns="nu exista joc disponibil. creati unul nou ";
+                                                else
+                                                    raspuns="nu exista jocul cu nr de ordine introdus. incercati din nou";
+                                        }
+
+                                        ///fa mutare
+                                        if(request.contains("submit move"))
+                                        {
+                                            Integer linie=0,coloana=0,nr=0;
+                                            String[] arr;
+                                            int ok=1;
+
+
+                                            ///parsare mesaj
+                                            request=request.replace("submit move ","");
+
+                                            arr=request.split(" ");
+
+                                            ///extragere nr joc
+                                            try {
+                                               /// System.out.println(arr[0]+";");
+                                                nr=Integer.parseInt(arr[0]);
+
+
+
+                                            } catch (NumberFormatException nfe) {
+                                                raspuns="nu ati introdus id joc ca un numar valid. incercati din nou.";
+                                                ok=0;
+                                            }
+
+                                            ///extragere linie
+                                            try {
+                                             ////   System.out.println(arr[1]+";");
+                                                linie=Integer.parseInt(arr[1]);
+                                            } catch (NumberFormatException nfe) {
+                                                raspuns="nu ati introdus linia ca un nr valid. incercati din nou.";
+                                                ok=0;
+                                            }
+
+                                            //extragere coloana
+                                            try {
+                                               //// System.out.println(arr[2]+";");
+                                                coloana=Integer.parseInt(arr[2]);
+                                            } catch (NumberFormatException nfe) {
+                                                raspuns="nu ati introdus coloana ca un numar valid. incercati din nou.";
+                                                ok=0;
+                                            }
+
+                                            if(ok==1)
+                                                if(game.getGame(nr)!=null)
+                                                {
+                                                    System.out.println(game.getGame(nr).getTurn()+"asta");
+                                                    if(game.getGame(nr).mutare(linie,coloana,game.getGame(nr).getTurn()))
+                                                    {
+                                                        raspuns="mutare inregistrata";
+                                                        game.getGame(nr).setTurn((game.getGame(nr).getTurn())%2+1);
+                                                    }
+                                                    //invalid
+                                                    else
+                                                    {
+                                                        raspuns="mutare invalida. incercati din nou.";
+
+                                                    }
+                                                }
+                                                else
+                                                    raspuns="nu exista jocul cu nr de ordine introdus. incercati din nou";
+
+                                        }
+
+
+                                        if(request.equals("exit")){
+
+                                            raspuns="un player a iesit din joc";
+                                            System.out.println("in exit sunt");
+                                            break;
+                                            ///ar fi bine ca celalat sa fie scos
+                                        }
+
+                                        if(request.equals("swap2")){
+                                            //primul jucator face 3 mutari,2 negru si 1 alb
+                                            //al doilea are 3 variante: -joaca cu negru
+                                            //                          -joaca cu alb si mai pune o piesa
+                                            //                          -nu decide cu ce joaca,mai pune 2 piese si il lasa pe 1 sa decida el.
+                                        }
+
+                                        out.println(raspuns);
+                                        System.out.println(raspuns);
+                                        out.flush();
+
+                                        if(nrGame!=0)
+                                        {out.println("acum este tura ta "+game.getGame(nrGame).getTurn());
+                                        System.out.println("acum este tura ta "+game.getGame(nrGame).getTurn());}
+
+                                        request = in.readLine();
+                                    }
+                                        if(request.equals("stop"))
+                                            raspuns="Server stopped";

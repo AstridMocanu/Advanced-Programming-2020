@@ -1,3 +1,6 @@
+import com.jcraft.jsch.SftpException;
+
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -22,7 +25,19 @@ public class GameServer {
             serverSocket.close();
         }
     }
-    public static void main ( String [] args ) throws IOException {
-        GameServer server = new GameServer();
+    public static void main ( String [] args ) {
+       UploadController up=new UploadController();
+        try {
+            up.urcare("joc0.sgf");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (SftpException e) {
+            e.printStackTrace();
+        }
+        try {
+            GameServer server = new GameServer();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -1,9 +1,9 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import com.jcraft.jsch.SftpException;
+
+import java.io.*;
 import java.net.Socket;
 import java.sql.SQLOutput;
+import java.time.LocalDate;
 
 class ClientThread extends Thread {
 
@@ -16,10 +16,27 @@ class ClientThread extends Thread {
     private Game game;
     private Integer nrTurn=1;
     private Integer pozl=0,pozc=0;
+    PrintStream fout;
+    String filename;
 
+    void afisareFisier(String text){
+        try {
+            fout=new PrintStream( new FileOutputStream("joc"+game.getId()+".sgf",true));
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        fout.println(text);
+        fout.flush();
+        fout.close();
+
+    }
 
 
     public void run () {
+
+
+
         try
         {
 
@@ -41,6 +58,27 @@ class ClientThread extends Thread {
                 ///by default dim=15
                 game=new Game(15);
                 nrTurn=1;
+
+                try {
+                    fout=new PrintStream( new FileOutputStream("joc"+game.getId()+".sgf"));
+
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+                filename="joc"+game.getId()+".sgf";
+
+                LocalDate date = LocalDate.now();
+                fout.println("DT "+date);
+                fout.println("PB Blacky");
+                fout.println("PW Whitey");
+                fout.println("FF Version:Astrid");
+                fout.println("EV Marea Tema la Java Saptamanala");
+                fout.flush();
+
+                fout.flush();
+
+                fout.close();
+
 
                 out.println(raspuns);
                 debug(raspuns);
@@ -71,7 +109,21 @@ class ClientThread extends Thread {
                         if(Game.getGame(nr)!=null)
                             if(Game.getGame(nr).addPlayer())
                             {raspuns="v-ati alaturat jocului";
+                            id=nr;
                             game=Game.getGame((nr));
+
+                                try {
+                                    fout=new PrintStream( new FileOutputStream("joc"+game.getId()+".sgf",true));
+
+                                } catch (FileNotFoundException e) {
+                                    e.printStackTrace();
+                                }
+
+
+
+
+
+
                             }
                             else
                                 raspuns="nu exista joc disponibil. creati unul nou ";
@@ -121,6 +173,10 @@ class ClientThread extends Thread {
                     r2="poz: "+game.getPozl()+" "+game.getPozc();
                 else {
                     r2="ati pierdut";debug("r2 = " + r2);
+                    afisareFisier("WIN: "+game.getWinner());
+                    //fout.flush();
+                    UploadController uc=new UploadController();
+                    uc.urcare(filename);
                     out.println(r2);
                     out.flush();
                     break;
@@ -185,6 +241,7 @@ class ClientThread extends Thread {
                     try {
                        /// System.out.println(arr[0]+";");
                         nr=Integer.parseInt(arr[0]);
+                        id=nr;
 
 
 
@@ -224,6 +281,15 @@ class ClientThread extends Thread {
 
                                 Game.getGame(nr).setPozl(linie);
                                 Game.getGame(nr).setPozc(coloana);
+
+
+                                   if(Game.getGame(nr).getTurn()==1)
+                                       afisareFisier("B:"+linie+" "+coloana);
+                                   else
+                                   if(Game.getGame(nr).getTurn()==2)
+                                       afisareFisier("W:"+linie+" "+coloana);
+
+                                   fout.flush();
 
 
                                 Game.getGame(nr).setTurn((Game.getGame(nr).getTurn())%2+1);
@@ -277,7 +343,7 @@ class ClientThread extends Thread {
             out.println(raspuns);
             debug(raspuns);
             out.flush();
-        } catch (IOException e) {
+        } catch (IOException | SftpException e) {
             System.err.println("Communication error... " + e);
         } finally {
             try {

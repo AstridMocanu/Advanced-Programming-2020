@@ -5,6 +5,7 @@ import java.util.List;
 public class Player {
     private Integer myTurn;
     private List<Mutare> mutari=new ArrayList<>();
+    private String name;
 
     public Player(Integer myTurn) {
         this.myTurn = myTurn;
@@ -105,5 +106,21 @@ public class Player {
 
     public void setMyTurn(Integer myTurn) {
         this.myTurn = myTurn;
+    }
+
+    public List<Mutare> getMutari() {
+        return mutari;
+    }
+
+    public void setMutari(List<Mutare> mutari) {
+        this.mutari = mutari;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
