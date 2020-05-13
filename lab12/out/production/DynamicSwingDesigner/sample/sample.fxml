@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <Pane prefHeight="563.0" prefWidth="806.0" style="-fx-background-color: darksalmon;">
+         <children>
+            <Pane fx:id="pane" layoutX="193.0" layoutY="79.0" onMouseClicked="#PaneOnMouseClick" opacity="0.71" prefHeight="386.0" prefWidth="600.0" style="-fx-background-color: peachpuff; -fx-background-radius: 5px;">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <effect>
+                  <InnerShadow>
+                     <color>
+                        <Color red="0.9868420958518982" green="0.27869153022766113" blue="0.27869153022766113" />
+                     </color>
+                  </InnerShadow>
+               </effect></Pane>
+            <Button layoutX="345.0" layoutY="492.0" mnemonicParsing="false" style="-fx-background-color: maroon;" text="Load" textFill="#e8dfdf">
+               <effect>
+                  <InnerShadow />
+               </effect></Button>
+            <Button layoutX="708.0" layoutY="37.0" mnemonicParsing="false" onAction="#actiuneComboBox" style="-fx-background-color: maroon;" text="Ready" textFill="#eee4e4">
+               <effect>
+                  <InnerShadow />
+               </effect></Button>
+            <Label layoutX="426.0" layoutY="42.0" text="Input Text" textFill="#dddcdc" />
+            <Button fx:id="saveButton" layoutX="228.0" layoutY="492.0" mnemonicParsing="false" onAction="#SaveButton" style="-fx-background-color: maroon;" text="Save to XML" textFill="#e8e4e4">
+               <effect>
+                  <InnerShadow />
+               </effect></Button>
+            <TextField fx:id="textField" layoutX="503.0" layoutY="37.0" />
+            <Button fx:id="exitButton" layoutX="603.0" layoutY="480.0" mnemonicParsing="false" onAction="#exitButton" prefHeight="50.0" prefWidth="80.0" style="-fx-background-color: maroon;" text="Exit" textFill="#e8dfdf">
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </Button>
+            <ComboBox fx:id="comboBox" layoutX="213.0" layoutY="37.0" prefWidth="150.0" style="-fx-background-color: firebrick;">
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </ComboBox>
+            <TableView layoutX="6.0" layoutY="79.0" prefHeight="386.0" prefWidth="183.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="C1" />
+                <TableColumn prefWidth="75.0" text="C2" />
+              </columns>
+            </TableView>
+         </children>
+         <effect>
+            <InnerShadow>
+               <color>
+                  <Color red="0.5789473652839661" green="0.05896686017513275" blue="0.05896686017513275" />
+               </color>
+            </InnerShadow>
+         </effect>
+      </Pane>
+   </children>
+</GridPane>

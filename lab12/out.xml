@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="11.0.5" class="java.beans.XMLDecoder">
+ <object class="javafx.scene.layout.Pane">
+  <void property="effect">
+   <object class="javafx.scene.effect.InnerShadow"/>
+  </void>
+  <void property="id">
+   <string>pane</string>
+  </void>
+  <void property="layoutX">
+   <double>193.0</double>
+  </void>
+  <void property="layoutY">
+   <double>79.0</double>
+  </void>
+  <void property="opacity">
+   <double>0.71</double>
+  </void>
+  <void property="prefHeight">
+   <double>386.0</double>
+  </void>
+  <void property="prefWidth">
+   <double>600.0</double>
+  </void>
+  <void property="style">
+   <string>-fx-background-color: peachpuff; -fx-background-radius: 5px;</string>
+  </void>
+ </object>
+</java>
